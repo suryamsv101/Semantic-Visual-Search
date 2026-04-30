@@ -1,0 +1,27 @@
+# --- Virtual Environments & Secrets ---
+venv/
+env/
+.env
+**/venv/
+
+# --- Python/Backend Caches ---
+__pycache__/
+*.pyc
+
+# --- Frontend/Node Dependencies ---
+node_modules/
+dist/
+build/
+
+# --- Datasets & Images ---
+# Ignore all heavy files inside your data and image folders...
+visual-search-app/backend/data/*
+visual-search-app/backend/images/*
+
+# ...but DO NOT ignore the .gitkeep files (this keeps the folder structure intact on GitHub)
+!visual-search-app/backend/data/.gitkeep
+!visual-search-app/backend/images/.gitkeep
+
+# --- OS System Files ---
+.DS_Store
+Thumbs.db

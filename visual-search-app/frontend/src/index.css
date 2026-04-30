@@ -1,0 +1,88 @@
+/* ── Tailwind directives ───────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base styles ───────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --font-body: "Space Grotesk", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-slate-100 min-h-screen;
+  }
+
+  /* Custom scrollbar to match the dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ── Component utilities ───────────────────────────────────────────────────── */
+@layer components {
+  /* Skeleton shimmer animation used in loading cards */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 25%,
+      rgba(255, 255, 255, 0.10) 50%,
+      rgba(255, 255, 255, 0.04) 75%
+    );
+    background-size: 400px 100%;
+    @apply animate-shimmer rounded-xl;
+  }
+
+  /* Drag-over state for the dropzone */
+  .dropzone-active {
+    @apply border-accent shadow-[0_0_20px_rgba(99,102,241,0.35)];
+  }
+
+  /* Glass card effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ── Utility extras ────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Clip-path fade used on result images */
+  .fade-in {
+    animation: fadeUp 0.35s ease-out both;
+  }
+
+  /* Stagger helpers for result grid items */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.10s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.20s; }
+  .stagger-5 { animation-delay: 0.25s; }
+  .stagger-6 { animation-delay: 0.30s; }
+  .stagger-7 { animation-delay: 0.35s; }
+  .stagger-8 { animation-delay: 0.40s; }
+  .stagger-9 { animation-delay: 0.45s; }
+  .stagger-10{ animation-delay: 0.50s; }
+}
